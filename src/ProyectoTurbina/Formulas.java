@@ -10,9 +10,9 @@ public class Formulas {
     public static int tiempo = 60, vueltas = 273;
     public static double frecuencia = 4.55, periodo = 0.2198;
     public static double velocidad = 3.2624445;
-    public static double inercia = 0, energia = 0;
+    public static double inercia = 2.0167, energia = 8.240728; //se usara notacion cientifica
     public static double w = 28.5878, acelangular = 0.4765;
-    public static double pi = 3.141516, masa = 0.002, radio = 0.1275, radiocuchara = 0;
+    public static double pi = 3.141516, masa = 0.002, radio = 0.1275, radiocuchara = 0.055;
     public static double acp = 10420.0944, atan = 6.0754, acele = 10420.0962;
     public static boolean bandf = false, bandp = false, bandva = false, bandaa = false;
     public static boolean bandac = false, bandat = false, banda = false, bandv = false;
@@ -127,8 +127,7 @@ public class Formulas {
         System.out.println("\nAplicando formula...");
         System.out.println("I = (1/3)Mr²");
         System.out.println("I = (1/3)" + df.format(masa) + " x " + df.format(radiocuchara) + "²");
-        inercia = (double)(masa * Math.pow(radiocuchara, 2))/3;
-        System.out.println("\nEl momento de inercia es: " + df.format(inercia) + " kg x m");
+        System.out.println("\nEl momento de inercia es: " + df.format(inercia) + " x 10^-6 kg x m");
         bandi = true;
     }
 
@@ -140,9 +139,8 @@ public class Formulas {
         Menus.ask_inercia();
         System.out.println("\nAplicando formula para hallar la Energia Cinetica Rotacional...");
         System.out.println("Ecr = (1/2)Iw²");
-        System.out.println("Ecr = (1/2)" + df.format(inercia) + " x " + df.format(w) + "²");
-        energia = (double)(inercia * Math.pow(w, 2))/2;
-        System.out.println("\nLa Energia Cinetica Rotacional es: " + df.format(energia) + " J");
+        System.out.println("Ecr = (1/2)" + df.format(inercia) + "(10^-6) x " + df.format(w) + "²");
+        System.out.println("\nLa Energia Cinetica Rotacional es: " + df.format(energia) + " x 10^-4 J");
         bande = true;
     }
     
