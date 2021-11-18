@@ -366,10 +366,10 @@ public class Acciones {
             System.out.println("ACELERACION: " + Formulas.df.format(Formulas.acele)+ " m/s²");
         }
         if (Formulas.bandi == true) {
-            System.out.println("INERCIA: " + Formulas.df.format(Formulas.inercia) + " kg x m");
+            System.out.println("INERCIA: " + Formulas.df.format(Formulas.inercia) + " x 10^-6 kg x m");
         }
         if (Formulas.bande == true) {
-            System.out.println("ENERGIA CINETICA ROTACIONAL: " + Formulas.df.format(Formulas.energia) + " J");
+            System.out.println("ENERGIA CINETICA ROTACIONAL: " + Formulas.df.format(Formulas.energia) + " x 10^-4 J");
         }
         System.out.print("\n-------------------------------------\n");
         System.out.println("TURBINA CUSTOM: \n");
