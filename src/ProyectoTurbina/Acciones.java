@@ -388,12 +388,7 @@ public class Acciones {
         if (bandac == true) {
             System.out.println("ACELERACION CENTRIPETA: " + Formulas.df.format(acpc) + " m/s²");
         }
-        if (bandat == true) 
-        ACELERACION ANGULAR: 0.0157 rad/s²
-        ACELERACION CENTRIPETA: 5.5267 m/s²
-        ACELERACION TANGENCIAL: 0.2199 m/s²
-        ACELERACION: 5.5311 m/s²
-        INERCIA: 0.0000 kg x m{
+        if (bandat == true) {
             System.out.println("ACELERACION TANGENCIAL: " + Formulas.df.format(atanc) + " m/s²");
         }
         if (banda == true) {
