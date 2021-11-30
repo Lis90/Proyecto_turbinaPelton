@@ -9,68 +9,84 @@ public class Acciones {
     public static Scanner scan = new Scanner(System.in);
     public static double pi = 3.141516;
     public static boolean band_cifras = false;
-    public static double radioc = 0, velocidadc = 0, masac = 0;
+    public static double radioc = 0, velocidadc = 0, masac = 0, masaelice = 0, nelices = 0;
     public static int tiempoc = 0, vueltasc = 0;
-    public static double frecuenciac = 0, radiocucharac = 0, periodoc = 0;
+    public static double frecuenciac = 0, periodoc = 0;
     public static double wc = 0, acelangularc = 0;
     public static double acpc = 0, atanc = 0, acelec = 0;
-    public static double inerciac = 0, energiac = 0;
+    public static double inerciac = 0, energiac = 0, torquec = 0;
     public static boolean bandf = false, bandp = false, bandva = false, bandaa = false;
     public static boolean bandac = false, bandat = false, banda = false, bandv = false;
-    public static boolean bandi = false, bande = false;
+    public static boolean bandi = false, bande = false, bandt = false;
 
     static void acciones(int opc) {
         switch (opc) {
             case 1:
                 System.out.println("Eleccian: Periodo (T)");
+                System.out.print("-------------------------------------------------------\n");
                 Formulas.periodo();
                 Menus.ask_menu(1);
                 break;
             case 2:
                 System.out.println("Eleccion: Frecuencia (f)");
+                System.out.print("-------------------------------------------------------\n");
                 Formulas.frecuencia();
                 Menus.ask_menu(1);
                 break;
             case 3:
                 System.out.println("Eleccion: Velocidad angular (w)");
-                Formulas.velocidad_angular();
+                System.out.print("-------------------------------------------------------\n");
+                Formulas.velocidad_angular(true);
                 Menus.ask_menu(1);
                 break;
             case 4:
                 System.out.println("Eleccion: Velocidad (v)");
-                Formulas.velocidad();
+                System.out.print("-------------------------------------------------------\n");
+                Formulas.velocidad(true);
                 Menus.ask_menu(1);
             case 5:
                 System.out.println("Eleccion: Aceleracion Angular (α)");
-                Formulas.aceleracion_angular();
+                System.out.print("-------------------------------------------------------\n");
+                Formulas.aceleracion_angular(true);
                 Menus.ask_menu(1);
                 break;
             case 6:
                 System.out.println("Eleccion: Aceleracion centripeta (a cp)");
-                Formulas.aceleracion_centripeta();
+                System.out.print("-------------------------------------------------------\n");
+                Formulas.aceleracion_centripeta(true);
                 Menus.ask_menu(1);
                 break;
             case 7:
                 System.out.println("Eleccion: Aceleracion tangencial (a tan)");
-                Formulas.aceleracion_tangencial();
+                System.out.print("-------------------------------------------------------\n");
+                Formulas.aceleracion_tangencial(true);
                 Menus.ask_menu(1);
                 break;
             case 8:
                 System.out.println("Eleccion: Aceleracion (a)");
-                Formulas.aceleracion();
+                System.out.print("-------------------------------------------------------\n");
+                Formulas.aceleracion(true);
                 Menus.ask_menu(1);
                 break;
             case 9:
-                System.out.println("Eleccion: Inercia Cucharas (I)");
+                System.out.println("Eleccion: Inercia (I)");
+                System.out.print("-------------------------------------------------------\n");
                 Formulas.inercia();
                 Menus.ask_menu(1);
                 break;
             case 10:
-                System.out.println("Eleccion: Energia Cinetica Rotacional (Ecr)");
-                Formulas.energia();
+                System.out.println("Eleccion: Torque (t)");
+                System.out.print("-------------------------------------------------------\n");
+                Formulas.torque(true);
                 Menus.ask_menu(1);
                 break;
             case 11:
+                System.out.println("Eleccion: Energia Mecanica (E)");
+                System.out.print("-------------------------------------------------------\n");
+                Formulas.energia(true);
+                Menus.ask_menu(1);
+                break;
+            case 12:
                 clearscreen();
                 Menus.band_cifras = false;
                 Menus.menu();
@@ -82,6 +98,7 @@ public class Acciones {
         switch (opc) {
             case 1:
                 System.out.println("Eleccion: Periodo (T)");
+                System.out.print("-------------------------------------------------------\n");
                 System.out.println("\nDatos necesarios:");
                 if (tiempoc == 0) { //si los datos estan vacios
                     datos_acciones2(1);
@@ -98,6 +115,7 @@ public class Acciones {
                 break;
             case 2:
                 System.out.println("Eleccion: Frecuencia (f)");
+                System.out.print("-------------------------------------------------------\n");
                 System.out.println("\nDatos necesarios:");
                 if (tiempoc == 0) { //si los datos estan vacios
                     datos_acciones2(1); //pedir datos
@@ -118,6 +136,7 @@ public class Acciones {
                     Menus.menu1(2);
                 } else {
                     System.out.println("Eleccion: Velocidad angular (w)");
+                    System.out.print("-------------------------------------------------------\n");
                     System.out.println("\nDatos necesarios: ");
                     System.out.println("\nFrecuencia: " + Formulas.df.format(frecuenciac) + " hz");
                     System.out.println("\nAplicando formula para hallar la velocidad angular...");
@@ -138,6 +157,7 @@ public class Acciones {
                     Menus.menu1(2);
                 } else {
                     System.out.println("Eleccion: Velocidad (v)");
+                    System.out.print("-------------------------------------------------------\n");
                     System.out.println("\nDatos necesarios:");
                     if (radioc == 0) {
                         datos_acciones2(2);
@@ -159,7 +179,8 @@ public class Acciones {
                     System.out.println("Por favor, primero calcule la velocidad angular...");
                     Menus.menu1(2);
                 } else {
-                    System.out.println("Eleccion: Aceleracion angular");
+                    System.out.println("Eleccion: Aceleracion angular (α)");
+                    System.out.print("-------------------------------------------------------\n");
                     System.out.println("\nDatos necesarios:");
                     if (tiempoc == 0) {
                         datos_acciones2(1);
@@ -181,7 +202,8 @@ public class Acciones {
                     System.out.println("Por favor, primero calcule la velocidad angular...");
                     Menus.menu1(2);
                 } else {
-                    System.out.println("Eleccion: Aceleracion centripeta");
+                    System.out.println("Eleccion: Aceleracion centripeta (acen)");
+                    System.out.print("-------------------------------------------------------\n");
                     System.out.println("\nDatos necesarios:");
                     if (radioc == 0) {
                         datos_acciones2(2);
@@ -203,7 +225,8 @@ public class Acciones {
                     System.out.println("Por favor, primero calcule la aceleracion angular...");
                     Menus.menu1(2);
                 } else {
-                    System.out.println("Eleccion: Aceleracion tangencial");
+                    System.out.println("Eleccion: Aceleracion tangencial (atan)");
+                    System.out.print("-------------------------------------------------------\n");
                     System.out.println("\nDatos necesarios:");
                     if (radioc == 0) {
                         datos_acciones2(2);
@@ -228,7 +251,8 @@ public class Acciones {
                     System.out.println("Por favor, primero calcule la aceleracion tangencial");
                     Menus.menu1(2);
                 } else {
-                    System.out.println("Eleccion: Aceleracion");
+                    System.out.println("Eleccion: Aceleracion (a)");
+                    System.out.print("-------------------------------------------------------\n");
                     System.out.println("\nDatos necesarios:");
                     System.out.println("\nAceleracion centripeta: " + Formulas.df.format(acpc) + " m/s²");
                     System.out.println("Aceleracion tangencial: " + Formulas.df.format(atanc) + " m/s²");
@@ -242,44 +266,81 @@ public class Acciones {
                 }
                 break;
             case 9:
-                System.out.println("Eleccion: Inercia");
+                System.out.println("Eleccion: Inercia (I)");
+                System.out.print("-------------------------------------------------------\n");
                 System.out.println("\nDatos necesarios:");
+                if (radioc == 0) {
+                    datos_acciones2(2);
+                }
                 if (masac == 0) {
                     datos_acciones2(3);
-                }
+                } 
                 System.out.println("\nDatos: ");
-                System.out.println("\nRadio: " + Formulas.df.format(radiocucharac) + " m");
+                System.out.println("\nRadio: " + Formulas.df.format(radioc) + " m");
                 System.out.println("Masa: " + Formulas.df.format(masac) + " kg");
                 System.out.println("\nAplicando formula...");
-                System.out.println("I = (1/3)Mr²");
-                System.out.println("I = (1/3)" + Formulas.df.format(masac) + " x " + Formulas.df.format(radiocucharac) + "²");
-                inerciac = (double)(masac * Math.pow(radiocucharac, 2))/3;
+                System.out.println("I = (1/2)Mr²");
+                System.out.println("I = (1/2)" + Formulas.df.format(masac) + " x " + Formulas.df.format(radioc) + "²");
+                inerciac = (double)(masac * Math.pow(radioc, 2))/2;
                 System.out.println("\nEl momento de inercia es: " + Formulas.df.format(inerciac) + " kg x m");
                 bandi = true;
                 Menus.ask_menu(2);
                 break;
             case 10:
+                if (acelangularc == 0) {
+                    System.out.println("Por favor, primero calcule la aceleracion angular");
+                    Menus.menu1(2);
+                } else if (inerciac == 0) {
+                    System.out.println("Por favor, primero calcule la inercia");
+                    Menus.menu1(2);
+                } else {
+                    System.out.println("Eleccion: Torque (t)");
+                    System.out.print("-------------------------------------------------------\n");
+                    System.out.println("\nDatos necesarios:");
+                    System.out.println("\nAceleracion angular: " + Formulas.df.format(acelangularc) + " rad/s²");
+                    System.out.println("Inercia: " + Formulas.df.format(inerciac) + " kg x m");
+                    System.out.println("\nAplicando formula para hallar el momento de torque...");
+                    System.out.println("T = I x α");
+                    System.out.println("T = " + Formulas.df.format(inerciac) + " x " + Formulas.df.format(acelangularc));
+                    torquec = inerciac * acelangularc;
+                    System.out.println("\nEl momento de torque es: " + Formulas.df.format(torquec) + " N x m");
+                    bandt = true;
+                    Menus.ask_menu(2);
+                }
+                break;
+            case 11:
                 if (wc == 0) {
                     System.out.println("Por favor, primero calcule la velocidad angular...");
+                    Menus.menu1(2);
+                } else if (velocidadc == 0) {
+                    System.out.println("Por favor, primero calcule la velocidad...");
                     Menus.menu1(2);
                 } else if (inerciac == 0) {
                     System.out.println("Por favor, primero calcule la inercia...");
                     Menus.menu1(2);
                 } else {
-                    System.out.println("Eleccion: Energia cinetica rotacional");
-                    System.out.println("Datos necesarios: ");
-                    System.out.println("\nVelocidad angular: " + Formulas.df.format(wc) + " rad/s");
+                    System.out.println("Eleccion: Energia Mecanica (E) ");
+                    System.out.print("-------------------------------------------------------\n");
+                    System.out.println("\nDatos necesarios: ");
+                    if (masaelice == 0) {
+                        Acciones.datos_acciones2(4);
+                    }
+                    System.out.println("\nDatos: ");
+                    System.out.println("\nMasa elice: " + masaelice + " kg");
+                    System.out.println("Numero de elices: " + nelices);
+                    System.out.println("Velocidad angular: " + Formulas.df.format(wc) + " rad/s");
                     System.out.println("Inercia: " + Formulas.df.format(inerciac) + " kg x m");
-                    System.out.println("\nAplicando formula para hallar la Energia Cinetica Rotacional...");
-                    System.out.println("Ecr = (1/2)Iw²");
-                    System.out.println("Ecr = (1/2)" + Formulas.df.format(inerciac) + " x " + Formulas.df.format(wc) + "²");
-                    energiac = (double)(inerciac * Math.pow(wc, 2))/2;
-                    System.out.println("\nLa Energia Cinetica Rotacional es: " + Formulas.df.format(energiac) + " J");
+                    System.out.println("\nAplicando formula para hallar la Energia Mecanica...");
+                    System.out.println("Ec = Ecr(disco) + Ec(elices)");
+                    System.out.println("Ec = (1/2)Iw² + n((1/2)mv²)");
+                    System.out.println("Ec = (1/2)" + Formulas.df.format(inerciac) + " x " + Formulas.df.format(wc) + "² " + nelices + "((1/2)" + Formulas.df.format(masaelice) + " x " + Formulas.df.format(velocidadc) +"²)");
+                    energiac = (double)((inerciac * Math.pow(wc, 2))/2 + nelices * ((masaelice * Math.pow(velocidadc, 2))/2));
+                    System.out.println("\nLa Energia Mecanica es: " + Formulas.df.format(energiac) + " J");
                     bande = true;
                     Menus.ask_menu(2);
                 }
                 break;
-            case 11:
+            case 12:
                 clearscreen();
                 Menus.band_cifras = false;
                 Menus.menu();
@@ -300,7 +361,6 @@ public class Acciones {
                         System.out.print("Digite las vueltas que registro en " + tiempoc + " s: ");
                         vueltasc = scan.nextInt();
                     } catch (InputMismatchException e) {
-                        clearscreen();
                         System.out.println("Error, la variable debe ser un numero entero!");
                         System.out.println("Por favor, ingrese los datos denuevo...");
                         scan.nextLine();
@@ -315,7 +375,6 @@ public class Acciones {
                         System.out.print("Digite la medida del radio (m): ");
                         radioc = scan.nextDouble();
                     } catch (InputMismatchException e) {
-                        clearscreen();
                         System.out.println("Error, la variable debe ser un numero!");
                         scan.nextLine();
                         error = true;
@@ -326,12 +385,25 @@ public class Acciones {
                 do {
                     error = false;
                     try{
-                        System.out.print("Digite la medida del radio de la elice (m): ");
-                        radiocucharac = scan.nextDouble();
-                        System.out.print("Digite la masa de la elice (kg): ");
+                        System.out.print("Digite la masa del disco (kg): ");
                         masac = scan.nextDouble();
                     } catch (InputMismatchException e) {
-                        clearscreen();
+                        System.out.println("Error, la variable debe ser un numero!");
+                        System.out.println("Por favor, ingrese los datos denuevo...");
+                        scan.nextLine();
+                        error = true;
+                    }
+                } while (error);
+                break;
+            case 4:
+                do {
+                    error = false;
+                    try{
+                        System.out.print("Digite la masa de una elice (kg): ");
+                        masaelice = scan.nextDouble();
+                        System.out.print("Digite el numero de elices: ");
+                        nelices = scan.nextInt();
+                    } catch (InputMismatchException e) {
                         System.out.println("Error, la variable debe ser un numero!");
                         System.out.println("Por favor, ingrese los datos denuevo...");
                         scan.nextLine();
@@ -351,7 +423,7 @@ public class Acciones {
             System.out.println("FRECUENCIA: " + Formulas.df.format(Formulas.frecuencia) + " hz");
         }
         if (Formulas.bandva == true) {
-            System.out.println("VELOCIDAD ANGULAR: " + Formulas.df.format(Formulas.w) + " rad/s²");
+            System.out.println("VELOCIDAD ANGULAR: " + Formulas.df.format(Formulas.w) + " rad/s");
         }
         if (Formulas.bandaa == true) {
             System.out.println("ACELERACION ANGULAR: " + Formulas.df.format(Formulas.acelangular) + " rad/s²");
@@ -366,10 +438,13 @@ public class Acciones {
             System.out.println("ACELERACION: " + Formulas.df.format(Formulas.acele)+ " m/s²");
         }
         if (Formulas.bandi == true) {
-            System.out.println("INERCIA: " + Formulas.df.format(Formulas.inercia) + " x 10^-6 kg x m");
+            System.out.println("INERCIA: " + Formulas.inercia + " kg x m");
+        }
+        if (Formulas.bandt == true) {
+            System.out.println("TORQUE: " + Formulas.torque + " N x m");
         }
         if (Formulas.bande == true) {
-            System.out.println("ENERGIA CINETICA ROTACIONAL: " + Formulas.df.format(Formulas.energia) + " x 10^-4 J");
+            System.out.println("ENERGIA CINETICA: " + Formulas.df.format(Formulas.energia) + " J");
         }
         System.out.print("\n-------------------------------------\n");
         System.out.println("TURBINA CUSTOM: \n");
@@ -380,7 +455,7 @@ public class Acciones {
             System.out.println("FRECUENCIA: " + Formulas.df.format(frecuenciac) + " hz");
         }
         if (bandva == true) {
-            System.out.println("VELOCIDAD ANGULAR: " + Formulas.df.format(wc) + " rad/s²");
+            System.out.println("VELOCIDAD ANGULAR: " + Formulas.df.format(wc) + " rad/s");
         }
         if (bandaa == true) {
             System.out.println("ACELERACION ANGULAR: " + Formulas.df.format(acelangularc) + " rad/s²");
@@ -397,8 +472,11 @@ public class Acciones {
         if (bandi == true) {
             System.out.println("INERCIA: " + Formulas.df.format(inerciac) + " kg x m");
         }
+        if (bandt == true) {
+            System.out.println("TORQUE: " + Formulas.df.format(torquec) + " N x m");
+        }
         if (bande == true) {
-            System.out.println("ENERGIA CINETICA ROTACIONAL: " + Formulas.df.format(energiac) + " J");
+            System.out.println("ENERGIA CINETICA: " + Formulas.df.format(energiac) + " J");
         }
     }
 
