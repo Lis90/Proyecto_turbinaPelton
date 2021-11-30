@@ -22,7 +22,7 @@ public class Menus {
             System.out.println("Elija una opcion...");
             System.out.println("\nHallar medidas en:");
             System.out.print("1. Turbina de Pelton \t");
-            System.out.println("2. Turbina Custom");
+            System.out.println("2. Turbina Custom (BETA)");
             System.out.println("3. Salir");
 
             try{ //error de entrada de caracteres
@@ -101,10 +101,11 @@ public class Menus {
             System.out.println("6. Aceleracion centripeta (a cp)");
             System.out.println("7. Aceleracion tangencial (a tan)");
             System.out.println("8. Aceleracion (a)");
-            System.out.println("9. Inercia elices (I)");
-            System.out.println("10. Energia Cinetica Rotacional (Ecr)");
-            System.out.println("11. Menu anterior");
-            System.out.print("\nOPC [1-11]: ");
+            System.out.println("9. Inercia (I)");
+            System.out.println("10. Torque (t)");
+            System.out.println("11. Energia Cinetica (Ec)");
+            System.out.println("12. Menu anterior");
+            System.out.print("\nOPC [1-12]: ");
 
             try { //error de entrada de caracteres
                 opc = scan.nextInt();
@@ -112,14 +113,15 @@ public class Menus {
                 Acciones.clearscreen();
                 System.out.println("Error, recuerde que la opcion debe ser un numero!\n");
                 scan = new Scanner(System.in);
+
                 error = true;
             }
 
-            if (error == false && (opc > 11 || opc < 1)) { //error de fuera de rango
+            if (error == false && (opc > 12 || opc < 1)) { //error de fuera de rango
                 Acciones.clearscreen();
                 System.out.println("Error, opcion fuera de rango [1-11]\n");
             }
-        } while (opc > 11 || opc < 1 || error);
+        } while (opc > 12 || opc < 1 || error);
 
         Acciones.clearscreen();
 
@@ -142,8 +144,9 @@ public class Menus {
             } else if (Character.toLowerCase(letra) == 'n') {
                 band = true;
             }
-            Acciones.clearscreen();
-            System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            if (band == false) {
+                System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            }
         } while (band == false);
 
         if (Character.toLowerCase(letra) == 'y') {
@@ -170,14 +173,16 @@ public class Menus {
             } else if (Character.toLowerCase(rpt) == 'n') {
                 band = true;
             }
-            Acciones.clearscreen();
-            System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            if (band == false) {
+                System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            }
         } while (band == false);
-        Acciones.clearscreen();
         if (Character.toLowerCase(rpt) == 'y') {
-            System.out.println("Demostrando calculo de la frecuencia... ");
+            System.out.print("\n-------------------------------------------------------\n");
+            System.out.println("\nDemostrando calculo de la frecuencia... ");
             Formulas.frecuencia();
-            System.out.print("\n-------------------------------------\n");
+            System.out.println("Redirigiendo a la formula principal...");
+            System.out.print("\n-------------------------------------------------------\n");
         }
     }
 
@@ -192,14 +197,40 @@ public class Menus {
             } else if (Character.toLowerCase(rpt) == 'n') {
                 band = true;
             }
-            Acciones.clearscreen();
-            System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            if (band == false) {
+                System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            }
         } while (band == false);
-        Acciones.clearscreen();
         if (Character.toLowerCase(rpt) == 'y') {
-            System.out.println("Demostrando calculo de la velocidad angular... ");
-            Formulas.velocidad_angular();
-            System.out.print("\n-------------------------------------\n");
+            System.out.print("\n-------------------------------------------------------\n");
+            System.out.println("\nDemostrando calculo de la velocidad angular... ");
+            Formulas.velocidad_angular(false);
+            System.out.println("Redirigiendo a la formula principal...");
+            System.out.print("\n-------------------------------------------------------\n");
+        }
+    }
+
+    public static void ask_velocidad() {
+        char rpt;
+        boolean band = false;
+        do { //manejo de error
+            System.out.print("\nDesea saber como fue calculado la velocidad? (y/n): ");
+            rpt = scan.next().charAt(0);
+            if (Character.toLowerCase(rpt) == 'y') {
+                band = true;
+            } else if (Character.toLowerCase(rpt) == 'n') {
+                band = true;
+            }
+            if (band == false) {
+                System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            }
+        } while (band == false);
+        if (Character.toLowerCase(rpt) == 'y') {
+            System.out.print("\n-------------------------------------------------------\n");
+            System.out.println("\nDemostrando calculo de la velocidad... ");
+            Formulas.velocidad(false);
+            System.out.println("Redirigiendo a la formula principal...");
+            System.out.print("\n-------------------------------------------------------\n");
         }
     }
 
@@ -214,14 +245,16 @@ public class Menus {
             } else if (Character.toLowerCase(rpt) == 'n') {
                 band = true;
             }
-            Acciones.clearscreen();
-            System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            if (band == false) {
+                System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            }
         } while (band == false);
-        Acciones.clearscreen();
         if (Character.toLowerCase(rpt) == 'y') {
-            System.out.println("Demostrando calculo de la aceleracion angular... ");
-            Formulas.aceleracion_angular();
-            System.out.print("\n-------------------------------------\n");
+            System.out.print("\n-------------------------------------------------------\n");
+            System.out.println("\nDemostrando calculo de la aceleracion angular... ");
+            Formulas.aceleracion_angular(false);
+            System.out.println("Redirigiendo a la formula principal...");
+            System.out.print("\n-------------------------------------------------------\n");
         }
     }
 
@@ -236,14 +269,16 @@ public class Menus {
             } else if (Character.toLowerCase(rpt) == 'n') {
                 band = true;
             }
-            Acciones.clearscreen();
-            System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            if (band == false) {
+                System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            }
         } while (band == false);
-        Acciones.clearscreen();
         if (Character.toLowerCase(rpt) == 'y') {
-            System.out.println("Demostrando calculo de la aceleracion tangencial... ");
-            Formulas.aceleracion_tangencial();
-            System.out.print("\n-------------------------------------\n");
+            System.out.print("\n-------------------------------------------------------\n");
+            System.out.println("\nDemostrando calculo de la aceleracion tangencial... ");
+            Formulas.aceleracion_tangencial(false);
+            System.out.println("Redirigiendo a la formula principal...");
+            System.out.print("\n-------------------------------------------------------\n");
         }
     }
 
@@ -258,14 +293,16 @@ public class Menus {
             } else if (Character.toLowerCase(rpt) == 'n') {
                 band = true;
             }
-            Acciones.clearscreen();
-            System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            if (band == false) {
+                System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            }
         } while (band == false);
-        Acciones.clearscreen();
         if (Character.toLowerCase(rpt) == 'y') {
-            System.out.println("Demostrando calculo de la aceleracion centripeta... ");
-            Formulas.aceleracion_centripeta();
-            System.out.print("\n-------------------------------------\n");
+            System.out.print("\n-------------------------------------------------------\n");
+            System.out.println("\nDemostrando calculo de la aceleracion centripeta... ");
+            Formulas.aceleracion_centripeta(false);
+            System.out.println("Redirigiendo a la formula principal...");
+            System.out.print("\n-------------------------------------------------------\n");
         }
     }
 
@@ -280,14 +317,16 @@ public class Menus {
             } else if (Character.toLowerCase(rpt) == 'n') {
                 band = true;
             }
-            Acciones.clearscreen();
-            System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            if (band == false) {
+                System.out.println("Error, la opcion debe ser 'y' o 'n'!");
+            }
         } while (band == false);
-        Acciones.clearscreen();
         if (Character.toLowerCase(rpt) == 'y') {
-            System.out.println("Demostrando calculo de la Inercia... ");
+            System.out.print("\n-------------------------------------------------------\n");
+            System.out.println("\nDemostrando calculo del momento de inercia... ");
             Formulas.inercia();
-            System.out.print("\n-------------------------------------\n");
+            System.out.println("Redirigiendo a la formula principal...");
+            System.out.print("\n-------------------------------------------------------\n");
         }
     }
 }
